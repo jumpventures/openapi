@@ -23,7 +23,7 @@ layout: home
         <td>{{ api.organisation }}</td>
         <td>{{ api.descriptionFile }}</td>
         <td>{{ api.descriptionFormat }}</td>
-        <td>{% if (api.oasv3) %}<a href="oas/{{ api.oasv3 }}">{{ api.oasv3 }}</a>{% endif %}</td>
+        <td>{% if api.oasv3  %}<a href="oas/{{ api.oasv3 }}">{{ api.oasv3 }}</a>{% endif %}</td>
         <td>{{ api.valid }}</td>
         <td>{{ api.score }}</td>
     </tr>

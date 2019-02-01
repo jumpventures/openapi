@@ -2,7 +2,12 @@
 layout: home
 ---
 
-# Overzicht API's
+- Totaal aantal API's: {{ site.data.apis._embedded.apis.size }}
+- Valid: 5 (83,33%)
+- Invalid: 1 (16,67%)
+- Swagger: 4 (66,67%)
+- API Blueprint: 1 (16,67%)
+- OASv3:  1 (16,67%)
 
 <table>
   <thead>

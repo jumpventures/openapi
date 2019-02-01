@@ -1,0 +1,66 @@
+{
+    "_embedded": {
+        "apis": [
+            {
+                "uuid": "6c4e2de9-9092-4f54-b0ed-9a91133bce1f",
+                "title": "MST Public API",
+                "organisation": "CTGB",
+                "descriptionFile": "https://mstpublicapi.docs.apiary.io/api-description-document",
+                "descriptionFormat": "API Blueprint",
+                "oasv3": null,
+                "valid": false,
+                "score": null
+            },
+            {
+                "uuid": "90d81ddf-1c56-49a5-80d7-b085748231b1",
+                "title": "KVK API",
+                "organisation": "KVK",
+                "descriptionFile": "https://developers.kvk.nl/resources/swagger.SPTSTP.incl-apikey.json",
+                "descriptionFormat": "Swagger",
+                "oasv3": "5.yaml",
+                "valid": true,
+                "score": null
+            },
+            {
+                "uuid": "7735f0a1-bf70-4b60-806f-0bc12e41649b",
+                "title": "Open Onderwijs API",
+                "organisation": "Surfnet",
+                "descriptionFile": "https://raw.githubusercontent.com/open-education-api/specification/v3/spec.yaml",
+                "descriptionFormat": "Swagger",
+                "oasv3": "4.yaml",
+                "valid": true,
+                "score": null
+            },
+            {
+                "uuid": "6f28340f-8c93-4b47-8194-a2f6ae1dd2d6",
+                "title": "BAG API",
+                "organisation": "Kadaster",
+                "descriptionFile": "https://rawgit.com/PDOK/open-api-specs/master/bag/oas.v1.yaml",
+                "descriptionFormat": "OASv3",
+                "oasv3": "3.yaml",
+                "valid": true,
+                "score": null
+            },
+            {
+                "uuid": "5488c828-6f62-4b82-b3b3-23ef669ef4ca",
+                "title": "Ondernemersplein API",
+                "organisation": "KVK",
+                "descriptionFile": "https://opendata.ondernemersplein.nl/swagger/v1/swagger.json",
+                "descriptionFormat": "Swagger",
+                "oasv3": "2.yaml",
+                "valid": true,
+                "score": null
+            },
+            {
+                "uuid": "b04a27ff-3c01-44f1-99fa-61aadf041107",
+                "title": "Aerius API",
+                "organisation": "Aerius",
+                "descriptionFile": "https://connect.aerius.nl/api/schema/4/connect.yaml",
+                "descriptionFormat": "Swagger",
+                "oasv3": "1.yaml",
+                "valid": true,
+                "score": null
+            }
+        ]
+    }
+}

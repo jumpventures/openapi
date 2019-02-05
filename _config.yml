@@ -28,7 +28,11 @@ theme: minima
 plugins:
   - jekyll-feed
 
-# Exclude from processing.
+jekyll_get:
+  - data: apis
+    json: 'https://fuzo422eub.execute-api.eu-west-1.amazonaws.com/latest/apis'
+
+  # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
 # exclude:

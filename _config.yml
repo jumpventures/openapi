@@ -25,12 +25,6 @@ github_username:  dvh
 # Build settings
 markdown: kramdown
 theme: minima
-plugins:
-  - jekyll-feed
-
-jekyll_get:
-  - data: apis
-    json: 'https://fuzo422eub.execute-api.eu-west-1.amazonaws.com/latest/apis'
 
   # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

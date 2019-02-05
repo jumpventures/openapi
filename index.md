@@ -2,7 +2,7 @@
 layout: home
 ---
 
-- Totaal aantal API's: {{ site.data.apis._embedded.apis.size }}
+- Totaal aantal API's: {{ site.data.apis.size }}
 - Valid: 5 (83,33%)
 - Invalid: 1 (16,67%)
 - Swagger: 4 (66,67%)
@@ -22,7 +22,7 @@ layout: home
     </tr>
   </thead>
   <tbody>
-    {% for api in site.data.apis._embedded.apis %}
+    {% for api in site.data.apis %}
     <tr>
         <td>{{ api.title }}</td>
         <td>{{ api.organisation }}</td>

@@ -1,6 +1,6 @@
 ---
 layout: home
-title: API Toevoegen
+title: Add API
 ---
 <form action="https://getsimpleform.com/messages?form_api_token=1cf7644752401ced80fcef89222bada5" method="post">
   <table>

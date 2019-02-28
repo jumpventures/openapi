@@ -13,12 +13,9 @@ layout: home
   <thead>
     <tr>
       <th>Titel</th>
-      <th>Org.</th>
-      <th>API description</th>
+      <th>Organisatie</th>
       <th>Formaat</th>
-      <th>OASv3</th>
-      <th>Valid</th>
-      <th>Score</th>
+      <th>OpenAPI 3.0</th>
     </tr>
   </thead>
   <tbody>
@@ -26,11 +23,8 @@ layout: home
     <tr>
         <td>{{ api.title }}</td>
         <td>{{ api.organisation }}</td>
-        <td>{{ api.descriptionFile }}</td>
         <td>{{ api.descriptionFormat }}</td>
-        <td>{% if api.oasv3  %}<a href="oas/{{ api.oasv3 }}">{{ api.oasv3 }}</a>{% endif %}</td>
-        <td>{{ api.valid }}</td>
-        <td>{{ api.score }}</td>
+        <td>{% if api._links.openapiYaml %}<a href="{{ api._links.openapiYaml.href }}">YAML</a> - <a href="{{ api._links.openapiJson.href }}">JSON</a>{% endif %}</td>
     </tr>
     {% endfor %}
   </tbody>

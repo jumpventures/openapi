@@ -14,10 +14,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: OpenAPI Specification 3.x (OASv3) onderzoek
-email: dimitri@jumpventures.nl
+email: dimitri.vanhees@kadaster.nl
 description: >- # this means to ignore newlines until "baseurl:"
-  Deze pagina is bedoeld om overheids API's te analyseren en zo de status van de adoptie van OASv3 in Nederland te onderzoeken. Tevens biedt deze pagina een aantal handige tools om API descriptions te converteren naar OASv3 en te valideren aan de Nederlandse API Strategie.
-baseurl: "" # the subpath of your site, e.g. /blog
+  Deze pagina is bedoeld om overheids API's te analyseren en zo de status van de adoptie van OASv3 in Nederland te onderzoeken. Tevens biedt deze pagina een aantal handige tools om API descriptions te converteren naar OAS3.
+baseurl: "/openapi" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: dvh
 github_username:  dvh
@@ -25,10 +25,8 @@ github_username:  dvh
 # Build settings
 markdown: kramdown
 theme: minima
-plugins:
-  - jekyll-feed
 
-# Exclude from processing.
+  # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
 # exclude:

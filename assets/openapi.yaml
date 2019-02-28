@@ -1,0 +1,181 @@
+openapi: 3.0.0
+info:
+  title: OAS Onderzoek API
+  description: ' '
+  contact:
+    name: Geonovum
+    url: 'https://www.geonovum.nl'
+    email: dimitri.vanhees@kadaster.nl
+  version: '1.0.0'
+servers:
+  - url: 'https://fuzo422eub.execute-api.eu-west-1.amazonaws.com/latest'
+
+paths:
+  /apis:
+    post:
+      summary: API toevoegen
+      description: Voeg een API toe ter analyse.
+      operationId: addApi
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiRequest'
+        required: true
+      responses:
+        202:
+          description: De API is ingediend en zal worden geanalyseerd.
+          headers: {}
+          content:
+            application/json:
+              schema: {}
+    get:
+      summary: API overzicht
+      description: Overzicht van alle API's die geanalyseerd zijn.
+      operationId: getApis
+      responses:
+        200:
+          description: OK
+          headers: {}
+          content:
+            application/hal+json:
+              schema:
+                required:
+                  - _embedded
+                  - _links
+                type: object
+                properties:
+                  _embedded:
+                    required:
+                      - usage
+                    type: object
+                    properties:
+                      apis:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Api'
+                  _links:
+                    type: object
+                    allOf:
+                      - $ref: 'https://cdn.jsdelivr.net/gh/dvh/KP-APIs@0.1/oas-components/schemas.yaml#/HalCollectionLinks'
+  /apis/{id}:
+    parameters:
+    - $ref: '#/components/parameters/id'
+    get:
+      summary: API opvragen
+      description: Gedetailleerde informatie over een specifieke API.
+      operationId: getApi
+      responses:
+        200:
+          description: OK
+          headers: {}
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Api'
+  /apis/{id}/openapi.yaml:
+    parameters:
+    - $ref: '#/components/parameters/id'
+    get:
+      summary: OpenAPI Specificatie (YAML)
+      description: Gegenereerde OpenAPI Specificatie 3.0 in YAML formaat. Dit formaat is goed leesbaar voor mensen.
+      operationId: getApiOasYaml
+      responses:
+        200:
+          description: OK
+          content:
+            text/yaml:
+              schema:
+                type: string
+  /apis/{id}/openapi.json:
+    parameters:
+    - $ref: '#/components/parameters/id'
+    get:
+      summary: OpenAPI Specificatie (JSON)
+      description: Gegenereerde OpenAPI Specificatie 3.0 in JSON formaat. Dit formaat is eenvoudig te gebruiken door machines.
+      operationId: getApiOasJson
+      responses:
+        200:
+          description: OK
+          content:
+            text/yaml:
+              schema:
+                type: string
+components:
+  parameters:
+    id:
+      name: id
+      in: path
+      description: Identifier
+      required: true
+      schema:
+        type: string
+  schemas:
+    ApiRequest:
+      type: object
+      required: [title, organisation, descriptionUrl]
+      properties:
+        title:
+          type: string
+          description: Titel van de API.
+        organisation:
+          type: string
+          description: Organisatie achter de API.
+        descriptionUrl:
+          type: string
+          format: url
+          description: Link naar de originele API specificatie.
+    Api:
+      type: object
+      required: [title, organisation, descriptionUrl, createdAt, id]
+      properties:
+        title:
+          type: string
+          description: Titel van de API.
+        organisation:
+          type: string
+          description: Organisatie achter de API.
+        descriptionUrl:
+          type: string
+          format: url
+          description: Link naar de originele API specificatie.
+        id:
+          type: string
+          format: uuid
+          description: Unieke identifier van de API binnen dit systeem.
+        createdAt:
+          type: string
+          format: datetime
+          description: Datum en tijdstip waarop de API is ingediend.
+        inputValidation:
+          type: object
+          description: Validatie resultaten van de oorspronkelijke (input) specificatie.
+          properties:
+            errors:
+              type: array
+              description: Fouten in de oorspronkelijke specificatie, transformatie naar OAS3 kan niet plaatsvinden.
+              items:
+                type: string
+            warnings:
+              description: Waarschuwingen in de oorspronkelijke specificatie, deze kunnen mogelijk voor problemen zorgen.
+              items:
+                type: string
+            notices:
+              description: Notificaties in de oorspronkelijke specificatie, ter informatie.
+              items:
+                type: string
+        _links:
+          type: object
+          properties:
+            self:
+              allOf:
+                - $ref: 'https://cdn.jsdelivr.net/gh/dvh/KP-APIs@0.1/oas-components/schemas.yaml#/HalLink'
+              description: 'Link naar de resource binnen deze API'
+            oasYaml:
+              allOf:
+                - $ref: 'https://cdn.jsdelivr.net/gh/dvh/KP-APIs@0.1/oas-components/schemas.yaml#/HalLink'
+              description: 'Link naar de gegenereerde openapi.yaml (Open API Specification 3.0)'
+            oasJson:
+              allOf:
+                - $ref: 'https://cdn.jsdelivr.net/gh/dvh/KP-APIs@0.1/oas-components/schemas.yaml#/HalLink'
+              description: 'Link naar de gegenereerde openapi.json (Open API Specification 3.0)'
